@@ -127,91 +127,93 @@ def jitter_camera_image(row, log_path, cameras):
     return image, steering
 
 # http: // machinelearningmastery.com / display - deep - learning - model - training - history - in -keras /
-#  This method, along with the two after it, are not working at the moment, but I will be working on it in the furture so I just commented it out.
-# def draw_history_graph(history) :
-#     # summarize history for loss
-#     plt.plot(history.history['loss'])
-#     plt.plot(history.history['val_loss'])
-#     plt.title('model loss')
-#     plt.ylabel('loss')
-#     plt.xlabel('epoch')
-#     plt.legend(['train', 'test'], loc='upper left')
-#     plt.show()
+#  This method is not working at the moment, but I will be working on it in the furture so I left it along with the two after it.
+def draw_history_graph(history) :
+    # summarize history for loss
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
 
-#     # summarize history for accuracy
-#     plt.plot(history.history['acc'])
-#     plt.plot(history.history['val_acc'])
-#     plt.title('model accuracy')
-#     plt.ylabel('accuracy')
-#     plt.xlabel('epoch')
-#     plt.legend(['train', 'test'], loc='upper left')
-#     plt.show()
+    # summarize history for accuracy
+    plt.plot(history.history['acc'])
+    plt.plot(history.history['val_acc'])
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
 
-# def t_predict(features, labels,cameras):
+# Working on creating predictions, this is currently broken
+def t_predict(features, labels,cameras):
 
-#     log_file = '/driving_log.csv'
-#     log_path = './data'
-#     skiprows = 1
-#     # load the csv log file
-#     print("Camera: ", cameras)
-#     print("Log path: ", log_path)
-#     print("Log file: ", log_file)
+    log_file = '/driving_log.csv'
+    log_path = './data'
+    skiprows = 1
+    # load the csv log file
+    print("Camera: ", cameras)
+    print("Log path: ", log_path)
+    print("Log file: ", log_file)
 
-#     column_names = ['center', 'left', 'right','steering', 'throttle', 'brake', 'speed']
-#     data_df = pd.read_csv(log_path+'/'+log_file,names=column_names, skiprows=skiprows)
-#     data_count = len(data_df)
+    column_names = ['center', 'left', 'right','steering', 'throttle', 'brake', 'speed']
+    data_df = pd.read_csv(log_path+'/'+log_file,names=column_names, skiprows=skiprows)
+    data_count = len(data_df)
 
-#     # initialise data extract
-#     t_features = []
-#     t_labels = []
+    # initialise data extract
+    t_features = []
+    t_labels = []
 
-#     row = data_df.iloc[np.random.randint(data_count-1)]
-#     steering = getattr(row, 'steering')
-#     image = load_image(log_path, getattr(row, cameras[0]))
+    row = data_df.iloc[np.random.randint(data_count-1)]
+    steering = getattr(row, 'steering')
+    image = load_image(log_path, getattr(row, cameras[0]))
 
-#     t_features.append(image)
-#     t_labels.append(steering)
+    t_features.append(image)
+    t_labels.append(steering)
 
-#     clf = GaussianNB()
-#     clf.fit(features, labels)
-#     pred = clf.pred(t_features)
-#     print(accuracy_score(pred, t_labels))
+    clf = GaussianNB()
+    clf.fit(features, labels)
+    pred = clf.pred(t_features)
+    print(accuracy_score(pred, t_labels))
 
-# def v_predict(features, labels,cameras):
+# Working on creating predictions, this is currently not working.
+def v_predict(features, labels,cameras):
 
-#     log_file = '/test_driving_log.csv'
-#     log_path = './data/test'
-#     skiprows = 1
-#     # load the csv log file
-#     print("Camera: ", cameras)
-#     print("Log path: ", log_path)
-#     print("Log file: ", log_file)
+    log_file = '/test_driving_log.csv'
+    log_path = './data/test'
+    skiprows = 1
+    # load the csv log file
+    print("Camera: ", cameras)
+    print("Log path: ", log_path)
+    print("Log file: ", log_file)
 
-#     column_names = ['center', 'left', 'right','steering', 'throttle', 'brake', 'speed']
-#     data_df = pd.read_csv(log_path+'/'+log_file,names=column_names, skiprows=skiprows)
-#     data_count = len(data_df)
+    column_names = ['center', 'left', 'right','steering', 'throttle', 'brake', 'speed']
+    data_df = pd.read_csv(log_path+'/'+log_file,names=column_names, skiprows=skiprows)
+    data_count = len(data_df)
 
-#     # initialise data extract
-#     t_features = []
-#     t_labels = []
+    # initialise data extract
+    t_features = []
+    t_labels = []
 
-#     i = 0
+    i = 0
 
-#     while i < 1000:
+    while i < 1000:
 
-#         row = data_df.iloc[np.random.randint(data_count-1)]
-#         steering = getattr(row, 'steering')
-#         image = load_image(log_path, getattr(row, cameras[0]))
+        row = data_df.iloc[np.random.randint(data_count-1)]
+        steering = getattr(row, 'steering')
+        image = load_image(log_path, getattr(row, cameras[0]))
 
-#         t_features.append(image)
-#         t_labels.append(steering)
+        t_features.append(image)
+        t_labels.append(steering)
 
-#         i += 1
+        i += 1
 
-#     clf = GaussianNB()
-#     clf.fit(features, labels)
-#     pred = clf.pred(t_features)
-#     print(accuracy_score(pred, t_labels))
+    clf = GaussianNB()
+    clf.fit(features, labels)
+    pred = clf.pred(t_features)
+    print(accuracy_score(pred, t_labels))
 
 # Generating
 def gen_train_data(skiprows=1,cameras=cameras, filter_straights=True,crop_image=True, batch_size=128):
@@ -344,7 +346,6 @@ def gen_val_data(camera=camera_center[0],crop_image=True, skiprows=1,batch_size=
     data_count = len(data_df)
 
     print("Log with %d rows." % (data_count))
-
 
     while True:  # need to keep generating data
 
