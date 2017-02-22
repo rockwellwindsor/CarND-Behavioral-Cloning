@@ -56,10 +56,10 @@ def load_image(log_path, filename):
 
 
 # this method randomily changes an image's brightness
+# brightness - referenced Vivek Yadav post
+# https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.yh93soib0
 def randomise_image_brightness(image):
     hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
-    # brightness - referenced Vivek Yadav post
-    # https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.yh93soib0
     bv = .25 + np.random.uniform()
     hsv[::2] = hsv[::2]*bv
 
