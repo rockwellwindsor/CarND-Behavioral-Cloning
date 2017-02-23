@@ -19,7 +19,7 @@ from keras.layers import Cropping2D
 from keras.optimizers import Adam
 from keras.utils.visualize_util import plot
 from keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping
-# print(Imports imported)
+# print("Imports imported")
 
 # Variables needed
 cameras = ['left', 'center', 'right']

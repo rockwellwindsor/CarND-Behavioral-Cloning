@@ -66,10 +66,47 @@ Data augmentation was a huge part of this project.
 
 * Cropping the images to fit the NVIDIA model I ended up using was just one part.
 
+<p class="center"><img src="./images/crop_center.png" /></p>
+
 * Jittering the images was also used, this idea was not only mentioned in the forums and in posts but was also part of the last project.
+
+<p class="center"><img src="./images/crop_jitter.png" /></p>
 
 * Randomizing the brightness was also an idea that I came across.  I have to admit it seemed like an odd idea at first and was not something I would have thought of.  But after reading more it began to make a lot of sense. 
 
+<p class="center"><img src="./images/crop_bright_center.png" /></p>
+
+* Cropping the image, jittering it and then randomizing the brightness.
+
+<p class="center"><img src="./images/crop_jitter_brighten.png" /></p>
+
+* As a way to try to help myself "see" what was going on during the trainging process I would log a portion (10000 rows) of the data as it was going through the generator.  Randomly I would flip a steering angle to generate more data.  This was also something I came across in the forums
+
+````
+
+Row 1 Original Angle : -0.209467155872
+Nothing happened 
+
+...
+
+Row 2 Original Angle : 0.378277720052
+Row 2 : 0.378277720052 Flipped to  -0.378277720052
+Row 2 : -0.378277720052
+
+...
+
+Row 3 Original Angle : -0.0474675345389
+Nothing happened 
+
+...
+
+Row 4 Original Angle : -0.222437846739
+Row 4 : -0.222437846739 Flipped to  0.222437846739
+Row 4 : 0.222437846739
+
+....
+ 
+````
 
 ##### 4) Test that the model successfully drives around track one without leaving the road
 
@@ -77,7 +114,7 @@ You can watch the video below to successfully see it navigate around the first t
 
 ##### 5) Summarize the results with a written report
 
-All in all I think I started out making this project harder than it needed to be.  At one point I must have had a couple hundred thousand images.  All taken from driving the courses forward and backward and then doing some recovery driving forward and backward, on all the courses. The training time was emense for all the data and really set me bac in the long run. In the end what lead to success was doing just a few things: augmenting the data, building the model and finding the sweet spot for the parameters.  
+All in all I think I started out making this project harder than it needed to be.  At one point I must have had a couple hundred thousand images.  All taken from driving the courses forward and backward and then doing some recovery driving forward and backward, on all the courses. The training time was emense for all the data and really set me back in the long run. In the end what lead to success was doing just a few things: augmenting the data, building the model, utilizing the generator and finding the sweet spot for the parameters.  
 
 ##### Further development
 
@@ -93,6 +130,3 @@ There were many papers and posts I read to help get me through this challenge.  
 * 1 - [NVIDIA paper](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
 * 2 - [Referenced Vivek Yadav post](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.yh93soib0)
 
-# TO-DO
----
-* Mimic the model information you put in project 2, detail-wise
