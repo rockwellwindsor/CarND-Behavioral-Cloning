@@ -42,16 +42,34 @@ The end result looked like this.
 
 ##### 3) Train and validate the model with a training and validation set
 
-After spending time trying to collect my own data I moved on to utilize the Udacity provided data set exclusively for the training set.  The validation set was taken from driving around the Jungle track, track 2 from the Beta track simulator in which I used a drawing pad with pen to move the car around the track in lieu of a mouse or joystick and in plac eof the keyboard.
+After spending time trying to collect my own data I moved on to utilize the Udacity provided data set exclusively for the training set.  
+
+These are three sample images from that data set, one from each camera angle (left, center, right').
+
+| Left    | Center           | Right  |
+| ------------- |:-------------:| -----:|
+| <img src="./images/left_2016_12_01_13_36_58_071.jpg" /> | <img src="./images/center_2016_12_01_13_30_48_287.jpg" /> | <img src="./images/right_2016_12_01_13_39_53_110.jpg" /> |
+
+The validation set was taken from driving around the Jungle track, track 2 from the Beta track simulator in which I used a drawing pad with pen to move the car around the track in lieu of a mouse or joystick and in place of the keyboard.
+
+These are three sample images from that data set, one from each camera angle (left, center, right').
+
+| Left    | Center           | Right  |
+| ------------- |:-------------:| -----:|
+| <img src="./images/left_2017_02_09_08_49_20_962.jpg" /> | <img src="./images/center_2017_02_09_08_47_53_649.jpg" /> | <img src="./images/right_2017_02_09_08_49_28_147.jpg" /> |
+
 
 ######
 Augmentation
 
 Data augmentation was a huge part of this project. 
 
-* Cropping the images to fit the NVIDIA model I ended up using was just one part.  
+* Cropping the images to fit the NVIDIA model I ended up using was just one part.
+
 * Jittering the images was also used, this idea was not only mentioned in the forums and in posts but was also part of the last project.
+
 * Randomizing the brightness was also an idea that I came across.  I have to admit it seemed like an odd idea at first and was not something I would have thought of.  But after reading more it began to make a lot of sense. 
+
 
 ##### 4) Test that the model successfully drives around track one without leaving the road
 
@@ -61,14 +79,14 @@ You can watch the video below to successfully see it navigate around the first t
 
 All in all I think I started out making this project harder than it needed to be.  At one point I must have had a couple hundred thousand images.  All taken from driving the courses forward and backward and then doing some recovery driving forward and backward, on all the courses. The training time was emense for all the data and really set me bac in the long run. In the end what lead to success was doing just a few things: augmenting the data, building the model and finding the sweet spot for the parameters.  
 
-##### 6) Further development
+##### Further development
 
 * I did have an issue with the car driving poorly when I was trying to record it.  It seemed running all those processes caused a lag and made the car manuever poorly and drive off the track.  This really is a sign I think that the parameters could still be much better.
 * Right now the car is driving slow.  If it moves too fast it will lose control and go off the road.  That also will need to be worked on.
 * It failed course 2 on the simulator after going through and extended shadowy area.  So further image augmentation is needed.
 * It also failed course 2 on the beta simulator.  Image aumentation for angled driving is another development myP project needs.
 
-##### 6) Acknowldegments
+##### Acknowldegments
 
 There were many papers and posts I read to help get me through this challenge.  Without these I would not have been able to produce the results I got in the end.
 
