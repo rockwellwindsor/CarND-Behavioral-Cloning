@@ -107,6 +107,13 @@ Row 4 : 0.222437846739
 ....
  
 ````
+<img src="./images/angle_images1.png" height="160" width="200"/>
+<img src="./images/angle_images2.png" height="160" width="200"/>
+<img src="./images/angle_images3.png" height="160" width="200"/>
+<img src="./images/angle_images4.png" height="80" width="200"/>
+<img src="./images/angle_images5.png" height="80" width="200"/>
+<img src="./images/angle_images6.png" height="80" width="200"/>
+<img src="./images/angle_images7.png" height="80" width="200"/>
 
 ##### 4) Test that the model successfully drives around track one without leaving the road
 
