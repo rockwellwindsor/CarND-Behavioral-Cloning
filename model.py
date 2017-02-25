@@ -278,32 +278,7 @@ def gen_train_data(skiprows=1,cameras=cameras, filter_straights=True,crop_image=
 
                 # Printing this data to the file.
                 if integer < 9999:
-                    print >> f, 'Row '+ str(integer) +' : '+ str(old_steering) + ' Flipped to ', steering  
-
-            # Angle Random straight line driving.
-
-            elif random.random() >= .8 and steering_check == -0.00:
-                chance = random.random()
-                if chance % 2:
-                    steering = steering - .02
-                else:
-                    steering = steering + .02
-
-                # Printing this data to the file.
-                if integer < 9999:
-                    print >> f, 'Row '+ str(integer) +' : '+ str(old_steering) + ' Angled to ', steering  
-
-            # Angle Random straight line driving.
-            elif random.random() >= .8 and steering_check == 0.00:
-                chance = random.random()
-                if chance % 2:
-                    steering = steering - .02
-                else:
-                    steering = steering + .02
-
-                # Printing this data to the file.
-                if integer < 9999:
-                    print >> f, 'Row '+ str(integer) +' : '+ str(old_steering) + ' Angled to ', steering  
+                    print >> f, 'Row '+ str(integer) +' : '+ str(old_steering) + ' Flipped to ', steering   
 
             else:
 
