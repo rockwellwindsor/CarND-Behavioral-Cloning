@@ -80,7 +80,7 @@ Data augmentation was a huge part of this project.
 
 <p class="center"><img src="./images/crop_jitter_brighten.png" /></p>
 
-* As a way to try to help myself "see" what was going on during the trainging process I would log a portion (10000 rows) of the data as it was going through the generator.  I randomly flipped 50% of the steering angles to try to balance the data.  This was also something I came across in the forums
+* As a way to try to help myself "see" what was going on during the trainging process I would log a portion (10000 rows) of the data as it was going through the generator.  I randomly flipped 50% of the steering angles to try to balance the data.  This was also something I came across in the forums, as well as in medium posts.
 
 ````
 
